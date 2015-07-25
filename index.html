@@ -4,14 +4,18 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body ng-controller="StoreController as store">
-<div ng-repeat="product in store.products">
-    <h1> {{product.name}} </h1>
+<ul class="list-group">
+    <li class="list-group-item" ng-repeat="product in store.products">
+        <h3>
+            {{product.name}}
+            <em class="pull-right">{{product.price | currency}}</em>
 
-    <h2> {{product.price | currency}} </h2>
+            <p> {{product.desc}}</p>
+            <img ng-src="{{product.image.full}}"/>
+        </h3>
 
-    <p> {{product.desc}}</p>
-    <button ng-show="product.canPurchase"> Add to Cart</button>
-</div>
+    </li>
+</ul>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
 </body>
