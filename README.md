@@ -1,0 +1,2 @@
+# angular_codeschool
+CODE SCHOOL - SHAPING UP WITH ANGULAR.JS
