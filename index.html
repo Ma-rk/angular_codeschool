@@ -3,13 +3,14 @@
 <head>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
-<body>
-<div ng-controller="StoreController as store">
-    <h1> {{store.product.name}} </h1>
+<body ng-controller="StoreController as store">
+<div ng-repeat="product in store.products">
+    <h1> {{product.name}} </h1>
 
-    <h2> ${{store.product.price}} </h2>
+    <h2> {{product.price | currency}} </h2>
 
-    <p> {{store.product.desc}}</p>
+    <p> {{product.desc}}</p>
+    <button ng-show="product.canPurchase"> Add to Cart</button>
 </div>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
