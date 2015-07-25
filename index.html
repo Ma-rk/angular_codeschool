@@ -1,11 +1,17 @@
 <!doctype html>
 <html ng-app="store">
-  <head>
-  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
-  </head>
-  <body>
-  	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
-  	<script type="text/javascript" src="app.js"></script>
-  	<p>{{"hello" + " Mark"}}</p>
-  </body>
+<head>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+<div ng-controller="StoreController as store">
+    <h1> {{store.product.name}} </h1>
+
+    <h2> ${{store.product.price}} </h2>
+
+    <p> {{store.product.desc}}</p>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
 </html>
