@@ -20,9 +20,6 @@
                         <a href ng-click="panel.selectTab(2)">Spec</a></li>
                     <li ng-class="{active:panel.isSelected(3)}">
                         <a href ng-click="panel.selectTab(3)">Review</a></li>
-                    <!--<li><a href ng-click="tab = 1">Description</a></li>-->
-                    <!--<li><a href ng-click="tab = 2">Spec</a></li>-->
-                    <!--<li><a href ng-click="tab = 3">Review</a></li>-->
                 </ul>
                 <div class="panel" ng-show="panel.isSelected(1)">
                     <h4>Desc</h4>
@@ -35,7 +32,29 @@
                 </div>
                 <div class="panel" ng-show="panel.isSelected(3)">
                     <h4>Reviews</h4>
-                    <blockquote>none yet</blockquote>
+                    <blockquote ng-repeat="review in product.reviews">
+                        <b>Stars: {{review.stars}}</b>
+                        {{review.body}}
+                        <cite>by: {{review.author}}</cite>
+                    </blockquote>
+                    <form name="reviewForm">
+                        <blockquote>
+                            <b>Stars: {{review.stars}}</b>
+                            {{review.body}}
+                            <cite>by {{review.authorr}}</cite>
+                        </blockquote>
+                        <select ng-model="review.stars">
+                            <option value="1">1 star</option>
+                            <option value="2">2 stars</option>
+                            <option value="3">3 stars</option>
+                            <option value="4">4 stars</option>
+                            <option value="5">5 stars</option>
+                        </select>
+                        <textarea ng-model="review.body"></textarea>
+                        <label>by:</label>
+                        <input ng-model="review.authorr" type="email"/>
+                        <input type="submit" value="SUBMIT"/>
+                    </form>
                 </div>
             </section>
         </h3>

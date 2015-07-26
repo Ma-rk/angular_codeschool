@@ -21,6 +21,18 @@
                 full: 'imgs/01-full.jpg',
                 thumb: 'imgs/01-thumb.jpg'
             },
+            reviews: [
+                {
+                    stars: 5,
+                    body: "I love this color!!",
+                    author: "mark@mark.com"
+                },
+                {
+                    stars: 3,
+                    body: "good good!!",
+                    author: "mark@mark.com"
+                }
+            ],
             canPurchase: true,
             soldOut: true
         },
@@ -32,6 +44,13 @@
                 full: 'imgs/02-full.jpg',
                 thumb: 'imgs/02-thumb.jpg'
             },
+            reviews: [
+                {
+                    stars: 4,
+                    body: "The girl is so pretty!!",
+                    author: "Mark@Mark.com"
+                }
+            ],
             canPurchase: true,
             soldOut: false
         }
