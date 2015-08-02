@@ -1,10 +1,15 @@
 # angular_codeschool
 - CODE SCHOOL: SHAPING UP WITH ANGULAR.JS
 
-##LEVEL 1
+https://www.codeschool.com/courses/shaping-up-with-angular-js
 
-### creating a module
-- `var app = angular.module('myModule`, []);
+![alt tag](https://github.com/Ma-rk/angular_codeschool/blob/master/imgs/frontPage.png)
+
+#### creating a module
+- `var app = angular.module('myModule', []);`
+
+
+##LEVEL 1
 
 
 ### our first controller
@@ -145,60 +150,7 @@
     this.products = gems;
   });
 
-  var gems = [{
-      name: 'Azurite',
-      description: "Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
-      shine: 8,
-      price: 110.50,
-      rarity: 7,
-      color: '#CCC',
-      faces: 14,
-      images: [
-        "images/gem-02.gif",
-        "images/gem-05.gif",
-        "images/gem-09.gif"
-      ],
-      reviews: [{
-        stars: 5,
-        body: "I love this gem!",
-        author: "joe@example.org",
-        createdOn: 1397490980837
-      }, {
-        stars: 1,
-        body: "This gem sucks.",
-        author: "tim@example.org",
-        createdOn: 1397490980837
-      }]
-    }, {
-      name: 'Zircon',
-      description: "Zircon is our most coveted and sought after gem. You will pay much to be the proud owner of this gorgeous and high shine gem.",
-      shine: 70,
-      price: 1100,
-      rarity: 2,
-      color: '#000',
-      faces: 6,
-      images: [
-        "images/gem-06.gif",
-        "images/gem-07.gif",
-        "images/gem-10.gif"
-      ],
-      reviews: [{
-        stars: 1,
-        body: "This gem is WAY too expensive for its rarity value.",
-        author: "turtleguyy@example.org",
-        createdOn: 1397490980837
-      }, {
-        stars: 1,
-        body: "BBW: High Shine != High Quality.",
-        author: "LouisW407@example.org",
-        createdOn: 1397490980837
-      }, {
-        stars: 1,
-        body: "Don't waste your rubles!",
-        author: "nat@example.org",
-        createdOn: 1397490980837
-      }]
-    }];
+  var gems = [...];
 })();
 
 ```
@@ -424,14 +376,6 @@
 
 ### Using Gallery Controller
 ```
-
-```
-```
-(not changed)
-```
-
-### Using Gallery Controller
-```
 <!DOCTYPE html>
 <html ng-app="gemStore">
   <head>
@@ -462,6 +406,120 @@
        ...
       </section>
     </div>
+  </body>
+</html>
+```
+```
+(not changed)
+```
+
+##LEVEL 3
+
+### Displaying Reviews should seem repetitive
+```
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    ...
+  </head>
+  <body ng-controller="StoreController as store">
+    ...
+        <section ng-controller="TabController as tab">
+          ...
+          <!--  Review Tab's Content  -->
+          <div ng-show="tab.isSet(3)">
+            <!--  Product Reviews List -->
+            <ul>
+              <h4>Reviews</h4>
+              <li ng-repeat="review in product.reviews">
+                <blockquote>
+                  <strong> {{review.stars}} Stars</strong>
+                  {{review.body}}
+                  <cite class="clearfix">{{review.author}}</cite>
+                </blockquote>
+              </li>
+            </ul>
+          </div>
+        </section>
+</html>
+```
+```
+(not changed)
+```
+
+### Create a Review Form
+```
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <body ng-controller="StoreController as store">
+  ...
+            <!--  Review Form -->
+            <form name="reviewForm">
+              <!--  Live Preview -->
+              <blockquote>
+                <strong> Stars</strong>
+                
+                <cite class="clearfix">—</cite>
+              </blockquote>
+
+              <!--  Review Form -->
+              <h4>Submit a Review</h4>
+              <fieldset class="form-group">
+                <select ng-model="review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Stars">
+                  <option value="">Rate the Product</option>
+                </select>
+              </fieldset>
+              <fieldset class="form-group">
+                <textarea ng-model="review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+              </fieldset>
+              <fieldset class="form-group">
+                <input type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
+              </fieldset>
+              <fieldset ng-model="review.author" class="form-group">
+                <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+              </fieldset>
+            </form>
+  ...
+  </body>
+</html>
+```
+```
+(not changed)
+```
+
+### Review Live Preview!
+```
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <body ng-controller="StoreController as store">
+  ...
+            <!--  Review Form -->
+            <form name="reviewForm">
+              <!--  Live Preview -->
+              <blockquote>
+                <strong>{{review.stars}} Stars</strong>
+                {{review.body}}
+                <cite class="clearfix">-{{review.author}}</cite>
+              </blockquote>
+
+              <!--  Review Form -->
+              <h4>Submit a Review</h4>
+              <fieldset class="form-group">
+                <select ng-model="review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]"  title="Stars">
+                  <option value="">Rate the Product</option>
+                </select>
+              </fieldset>
+              <fieldset class="form-group">
+                <textarea ng-model="review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+              </fieldset>
+              <fieldset class="form-group">
+                <input ng-model="review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
+              </fieldset>
+              <fieldset class="form-group">
+                <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+              </fieldset>
+            </form>
+  ...
   </body>
 </html>
 ```
